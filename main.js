@@ -148,7 +148,7 @@
 		if(data==null || data.length==0){
 			return false;
 		}
-		console.info(data);
+		// console.info(data);
 		for(d of data){
 			if(d.state == true){
 				setBlack(d.x, d.y);
@@ -1140,6 +1140,19 @@
 			M[i].push(-1);
 		}
 	}
+
+	function drawAll(){
+		for (let i = 0; i < M.length; i++) {
+			for (let j = 0; j < M[0].length; j++) {
+				if(M[i][j]==1){
+					fc2({which:false, button:1},j,i)
+				}
+				if(M[i][j]==0){
+					fc2({which:null, button:2},j,i)
+				}				
+			}
+		}
+	}
 	
 	function test(){
 	
@@ -1157,7 +1170,7 @@
 		//isAction |= draw(stratage(L, U, M, stratageSub2));
 	//}while(isAction)
 	/*
-for(var q=0;q<4;q++)
+for(var q=0;q<10;q++)
 {
 draw(stratageG(L, U, M, stratageSub1, true))
 draw(stratageV(L, U, M, stratageSub1, true))
@@ -1186,10 +1199,17 @@ draw(stratageV(L, U, M, stratageSub8, false))
 
 test()
 
-draw([{x:10,y:1,state:true}])
+
+draw([{x:10,y:3,state:false}])
+draw([{x:9,y:3,state:false}])
+draw([{x:21,y:21,state:false}])
+draw([{x:23,y:21,state:false}])
+
+draw([{x:10,y:4,state:true}])
+fc2({which:false, button:1},10,4)
 fc2({which:true, button:2},1,1)
 
-
+drawAll();
 
 var tempU = [];
 var t = 11
@@ -1203,6 +1223,7 @@ console.info(tempU);
 stratageSub1(U[t], 0, U[t].length, tempU, 0, tempU.length)
 
 //stratageSub1(L[t], 0, L[t].length, M[t], 0, M[t].length)
+
 
 */
 	
